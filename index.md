@@ -4,7 +4,8 @@
 ## Predicting Bike Share Demand for Capital Bikeshare
 ### Using Machine Learning Algorithms (Linear Regression, Lasso Regression, CART, Random Forest), Holdout Sample, k-Fold Cross Validation, Visualization with Tableau and R.
 
-[![View on GitHub](https://img.shields.io/badge/GitHub-View_on_GitHub-blue?logo=GitHub)](https://github.com/jennynguyen-97/bikesharedemand) 
+[![View on GitHub](https://img.shields.io/badge/GitHub-View_on_GitHub-red?logo=GitHub)](https://github.com/jennynguyen-97/bikesharedemand) 
+[![View R code](https://img.shields.io/badge/R-View_R_Code-blue?logo=#75AADB)](http://jennynguyen-97.github.io/bikesharedemand/bikesharedemand.html)
 
 [Capital Bikeshare](https://www.capitalbikeshare.com) is metro DC's bikeshare service, with 4,500 bikes and 500+ stations across 7 jurisdictions: Washington, DC.; Arlington, VA; Alexandria, VA; Montgomery, MD; Prince George's County, MD; Fairfax County, VA; and the City of Falls Church, VA. Designed for quick trips with convenience in mind, it’s a fun and affordable way to get around.
 
@@ -38,7 +39,7 @@ Season and weather patterns also play a role in bike demand. Specifically, deman
 By utilizing the information that is available ahead of time, bike-share firms can forecast the bike demand within the next week and thus reduce the uncertainty and ambiguity in their daily operations. Specifically, firms can supply and refill sufficient bikes at each docks, increase customer representative staff to assist customers on their cycling journeys, and implement an appropriate repair and mainteance schedule to minimize service disruption. Being able to predict demands ahead of time will enable bike-sharing programs to improve their operational efficiency, customer satisfaction, and business profits.
 
 ### Note
-Full version of the project including reproducible code can be found on github depository. The above write-up is meant to serve as an abstract of the project.
+Full version of the project including reproducible code can be found in github depository. The above write-up is meant to serve as an abstract of the project.
 
 
 
