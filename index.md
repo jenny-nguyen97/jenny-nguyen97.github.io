@@ -37,6 +37,9 @@ Season and weather patterns also play a role in bike demand. Specifically, deman
 
 By utilizing the information that is available ahead of time, bike-share firms can forecast the bike demand within the next week and thus reduce the uncertainty and ambiguity in their daily operations. Specifically, firms can supply and refill sufficient bikes at each docks, increase customer representative staff to assist customers on their cycling journeys, and implement an appropriate repair and mainteance schedule to minimize service disruption. Being able to predict demands ahead of time will enable bike-sharing programs to improve their operational efficiency, customer satisfaction, and business profits.
 
+### Note
+Full version of the project including reproducible code can be found on github depository. The above write-up is meant to serve as an abstract of the project.
+
 
 
 
