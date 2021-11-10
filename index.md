@@ -86,13 +86,13 @@ Indeed, there is a positive trend between _loggdp_ and _happiness_, indicating t
   
 ### Methodology
 #### A. Linear Regression (OLS)
-<p align="center"> Model: Happiness = ɑ + βLogGDP + e
+Model: Happiness = ɑ + βLogGDP + e
  
 <img width="574" alt="image" src="https://user-images.githubusercontent.com/93355594/141030004-7641b446-bdd0-47a9-ac85-eb11f303cbdf.png">
  
 I can see that for 1% change in GDP, happiness index increases on average by 0.76, ceteris paribus. The relationship between happiness and GDP is also statistically significant. There seems to be a positive relationship between happiness and GDP. However, my model may suffer from OVB because there are many factors that affect happiness such as employment, equality, freedom, etc. that have not been taken into consideration. The coefficient might actually refect some other "unobserved" factors that are not included in the analysis.
  
-<p align="center"> Model: Happiness = ɑ + β<sub>1</sub>LogGDP + β<sub>2</sub>Freedom + β<sub>3</sub>Generosity + β<sub>4</sub>Corruption + e
+Model: Happiness = ɑ + β<sub>1</sub>LogGDP + β<sub>2</sub>Freedom + β<sub>3</sub>Generosity + β<sub>4</sub>Corruption + e
  
 <img width="572" alt="image" src="https://user-images.githubusercontent.com/93355594/141030636-75c571e7-7163-4386-8086-8a7d1cb55ea2.png">
  
@@ -103,7 +103,7 @@ Panel regressions eliminate potential sources of country-specific measurement er
 
 I create a panel data of my current dataset with Country ID as the entity ID and Year as the time ID. I have 166 countries (entities), observed over 17 periods (2005 - 2021), for a total of 2,098 observations. Note that the panel is unbalanced in that not all countries are observed throughout 17 periods. Consider the panel nature of the dataset, perhaps happiness is different (on average) for each country (e.g., varying with perception and evaluation) or perhaps happiness is different through time (e.g., government policies). These variables are in effect omitted, and if relevant, then my causal estimate may be biased (OVB); consequently, I run a panel regression for happiness on Log GDP per capita while controlling for countries and time effects.
  
-<p align="center"> Model: index_plm <- plm(happiness~loggdp, data = index.p, model = "within", effect = "twoways")
+Model: index_plm <- plm(happiness~loggdp, data = index.p, model = "within", effect = "twoways")
 
 <img width="740" alt="image" src="https://user-images.githubusercontent.com/93355594/141031366-8e1f6dd5-8d3d-4b40-87f4-d94d5706c159.png">
  
@@ -111,11 +111,11 @@ The coefficient on _loggdp_ is 1.229 and is statistically significant. This impl
  
 I took a deeper look at the panel regression model by examining the effect of Log GDP per capita on Hapiness with balanced and unbalanced panel data for a period of eight years from 2014 - 2021.
  
-<p align="center"> Balanced panel data (85 countries for a total of 680 observations)
+Balanced panel data (85 countries for a total of 680 observations)
 
 <img width="630" alt="image" src="https://user-images.githubusercontent.com/93355594/141031770-33db5a51-fc24-403b-b887-5a4ff9de3b35.png">
  
-<p align="center"> Unbalanced panel data (160 countries for a total of 1107 observations)
+Unbalanced panel data (160 countries for a total of 1107 observations)
  
 <img width="674" alt="image" src="https://user-images.githubusercontent.com/93355594/141031842-e8fdbf7d-59fa-46e9-99f2-4d4e0debfbc4.png">
  
