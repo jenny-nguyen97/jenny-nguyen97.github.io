@@ -41,6 +41,13 @@ By utilizing the information that is available ahead of time, bike-share firms c
 ### Note
 Full version of the project including reproducible code can be found in github depository. The above write-up is meant to serve as an abstract of the project.
 
+---
+## Exploring a Timeless Problem Through a Novel Lens: Happiness v.s. GDP
+
+[![View on GitHub](https://img.shields.io/badge/GitHub-View_on_GitHub-red?logo=GitHub)](https://github.com/jennynguyen-97/gdpandhappiness) 
+[![View R code](https://img.shields.io/badge/R-View_R_Code-blue?logo=#75AADB)](http://jennynguyen-97.github.io/gdpandhappiness/Team-Project.html)
+
+
 
 
 
