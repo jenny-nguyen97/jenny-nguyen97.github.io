@@ -2,7 +2,7 @@
 
 ---
 ## Predicting Bike Share Demand for Capital Bikeshare
-### Using Machine Learning Algorithms (Linear Regression, Lasso Regression, CART, Random Forest), Holdout Sample, k-Fold Cross Validation, Visualization with Tableau and R.
+### Using Supervised Machine Learning Algorithms (Linear Regression, Lasso Regression, CART, Random Forest), Holdout Sample, k-Fold Cross Validation, Visualization with Tableau and R (ggplot).
 
 [![View on GitHub](https://img.shields.io/badge/GitHub-View_on_GitHub-red?logo=GitHub)](https://github.com/jennynguyen-97/bikesharedemand) 
 [![View R code](https://img.shields.io/badge/R-View_R_Code-blue?logo=#75AADB)](http://jennynguyen-97.github.io/bikesharedemand/bikesharedemand.html)
@@ -43,9 +43,11 @@ Full version of the project including reproducible code can be found in github d
 
 ---
 ## Exploring a Timeless Problem Through a Novel Lens: Happiness v.s. GDP
+### Using Supervised Machine Learning Algorithms (Linear Regression, Multiple Linear Regression), Causal Modeling (Panel Regression), Hypothesis Testing, Visualization with R (ggplot).
 
 [![View on GitHub](https://img.shields.io/badge/GitHub-View_on_GitHub-red?logo=GitHub)](https://github.com/jennynguyen-97/gdpandhappiness) 
 [![View R code](https://img.shields.io/badge/R-View_R_Code-blue?logo=#75AADB)](http://jennynguyen-97.github.io/gdpandhappiness/Team-Project.html)
+
 
 
 
