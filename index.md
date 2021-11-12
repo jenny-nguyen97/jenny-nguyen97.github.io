@@ -1,7 +1,7 @@
 # Portfolio
 
 ---
-## Predicting Bike Share Demand for Capital Bikeshare
+## Predicting Bike Share Demand for Capital Bikeshare in Washington, D.C.
 ### Using Supervised Machine Learning Algorithms (Linear Regression, Lasso Regression, CART, Random Forest), Holdout Sample, k-Fold Cross Validation, Visualization with Tableau and R (ggplot).
 
 [![View on GitHub](https://img.shields.io/badge/GitHub-View_on_GitHub-red?logo=GitHub)](https://github.com/jennynguyen-97/bikesharedemand) 
@@ -19,11 +19,11 @@ Every day, many people use bike sharing to get around, whether for work or leisu
 This project focuses on predicting the bike share demand based on available data such as date, time, holiday, working day, season, weather, temperature, humidity, and windspeed. 
 
 ### Modeling 
-My recommended random forest model achieved an out-of-sample <img src="https://render.githubusercontent.com/render/math?math=R^2"> of 81.3% and RMSE of 79.62, outperformed three other machine learning algorithms: multiple linear regression, random forest, and classification and regression tree (CART). 
+My recommended random forest model achieved an out-of-sample <img src="https://render.githubusercontent.com/render/math?math=R^2"> of 83.5% and RMSE of 72.98, outperformed three other machine learning algorithms: multiple linear regression, Lasso regression, and classification and regression tree (CART). 
 
-<img width="649" alt="Screen Shot 2021-11-07 at 11 56 21 PM" src="https://user-images.githubusercontent.com/93355594/140686479-6ea0ce3e-107c-4321-834b-d51a7259b1d0.png">
+<img width="646" alt="Screen Shot 2021-11-11 at 8 05 26 PM" src="https://user-images.githubusercontent.com/93355594/141391859-926e162d-6bdc-4d10-9504-9ac3bb63df8e.png">
 
-The random forest model is versatile, meaning that there is very little pre-processing required and the data does not need to be rescaled or transformed. Additionally, the model has low bias, moderate variance, and is robust to outliers and non-linear data. Needless to say, besides these advantages in utilizing random forest, there are several drawbacks that firms should be aware of regarding deployment. Firstly, the random forest model is not easily interpretable. It is a predictive modeling tool and not a descriptive tool, meaning if firms are looking for a description of the relationships in their bike demand data, other approaches would be better. Secondly, random forest can't extrapolate, it can only make a prediction that is an average of previously observed labels. Consequently, if there are operational disruptions caused by natural disasters such as winter storms, tornadoes, or pandemics, the random forest model will not make accurate predictions. Firms can mitigate these limitations by using the random forest model as a part of ensemble learning.
+The random forest model is versatile, meaning that there is very little pre-processing required and the data does not need to be rescaled or transformed. Additionally, the model has moderate bias, low variance, and is robust to outliers and non-linear data. Needless to say, besides these advantages in utilizing random forest, there are several drawbacks that firms should be aware of regarding deployment. Firstly, the random forest model is not easily interpretable. It is a predictive modeling tool and not a descriptive tool, meaning if firms are looking for a description of the relationships in their bike demand data, other approaches would be better. Secondly, random forest can't extrapolate, it can only make a prediction that is an average of previously observed labels. Consequently, if there are operational disruptions caused by natural disasters such as winter storms, tornadoes, or pandemics, the random forest model will not make accurate predictions. Firms can mitigate these limitations by using the random forest model as a part of ensemble learning.
 
 ### Conclusion
 The final result shows that demand for bikes is higher during weekdays compared to weekends and during timeblocks for morning commutes (7 a.m. - 9 a.m.) and afternoon commutes (4 p.m. - 7 p.m.). Consequently, firms should develop strategies to not only provide sufficient bikes to stations during busy hours, but also reallocate bikes to appropriate stations that match the commute patterns.
