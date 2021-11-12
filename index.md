@@ -104,7 +104,7 @@ Model: index_plm <- plm(happiness~loggdp, data = index.p, model = "within", effe
  
 The coefficient on _loggdp_ is 1.229 and is statistically significant. This implies that the treatment effect remains positive, but the OLS specification seems to have been biased downward the effect of Log GDP on happiness by omitting entity and time effects.
  
-I took a deeper look at the panel regression model by examining the effect of Log GDP per capita on Hapiness with balanced and unbalanced panel data for a period of eight years from 2014 - 2021.
+I take a deeper look at the panel regression model by examining the effect of Log GDP per capita on Hapiness with balanced and unbalanced panel data for a period of eight years from 2014 - 2021.
  
 Balanced panel data (85 countries for a total of 680 observations)
 
@@ -116,7 +116,7 @@ Unbalanced panel data (160 countries for a total of 1107 observations)
  
 The effect of _loggdp_ on happiness is positive and significant for both panels. However, the effect of _loggdp_ is higher in balanced panel data than it is in unbalanced panel data. The unbalanced data contains influential observations that pulls the betas toward zero.
  
-Upon further investigation, I recognize that most missing data in the period 2014 - 2021 was in the year of 2020. Specifically, most under-developed or developing countries such as Afghanistan, Costa Rica, Haiti, Indonesia, and Vietnam are missing happiness records in 2020. The reason for that is because the surveys cannot be conducted in those countries due to the pandemic. Additionally, removing countries that were not observed during the entire time period 2014 - 2021 leads to significant loss of data. The unbalanced panel contains 160 countries, but balanced panel contains only 85 countries. The total observations for unbalanced panel is over 1.5 times more than the observations for balanced panel. As a result, I suspect that there are some unobserved characteristics caused by the lack of random attrition in panel data.
+Upon further investigation, I recognize that most missing data in the period 2014 - 2021 was in the year of 2020. Specifically, most under-developed or developing countries such as Afghanistan, Costa Rica, Haiti, Indonesia, and Vietnam are missing happiness records in 2020. The reason for that is because the surveys cannot be conducted in those countries due to the pandemic. Additionally, removing countries that were not observed during the entire time period 2014 - 2021 leads to significant loss of data. The unbalanced panel contains 160 countries, but balanced panel contains only 85 countries. As a result, I suspect that there are some unobserved characteristics caused by the lack of random attrition in panel data.
   
 To determine if the data is random, I conduct a t-test for randomization on balanced and unbalanced panel data. t-value is 5.512 and p-value= 4.163e-08 which is significant. Consequently, the data is not randomly missing.
 
