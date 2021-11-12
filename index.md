@@ -60,25 +60,20 @@ The genesis of happiness and GDP stems from [Richard Easterlin](https://halshs.a
 
 <img width="667" alt="image" src="https://user-images.githubusercontent.com/93355594/140999697-00902f49-bfa1-4bfa-b8ef-5cdb3eeea63a.png">
  
-Other literature results, on the other hand, show diminishing impact of GDP on Happiness. A popular theory conducted by [Proto and Rustichini](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0079358) stated that the positive relation in happiness vanishes beyond some value of increasing income. They partitioned all individual observations into quantiles of per capita GDP by the country of residence (with the first quantile of the distribution containing the individuals living in the poorest countries), and then estimated the relation between GDP and happiness by using the quantiles. In their 2013 report _A Reassessment of the Relationship between GDP and Life Satisfaction_, Proto and Rustichini provided analysis supporting their main findings:
-
-* Most of the variation of life satisfaction due to GDP is explained by the effect in countries with per capita GDP below $10,000 (data are PPP-adjusted).
-* People in countries with a GDP per capita of below $6,700 were 12% less likely to report the highest level of life satisfaction than those in countries with a GDP per capita of around $20,000.
-* Countries with GDP per capita over $20,000 see a much less obvious link between GDP and happiness.
-* Between this level and the very highest GDP per capita level ($54,000), the probability of reporting the highest level of life satisfaction changes by no more than 2%, and seems to be hump-shaped, with a bliss point at around $33,000.
+Other literature results, on the other hand, show diminishing impact of GDP on Happiness. A popular theory conducted by [Proto and Rustichini](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0079358) stated that the positive relation in happiness vanishes beyond some value of increasing income. 
 
 <img width="582" alt="image" src="https://user-images.githubusercontent.com/93355594/141002991-d651f88c-5c86-496d-acbe-6c212e6fc54e.png">
  
 In agreement with Proto and Rustichini, Robert E. Lane in his 2001 book _The Loss of Hapiness in Market Democracies_ also argued that once an individual rised above a poverty line or "subsistence level", the main source of increased well-being is not income but rather friends and a good family life.
   
 ### Data and Exploratory Data Analyses
-I utilize the Gallup World Poll's [World Happiness Report](https://www.kaggle.com/ajaypalsinghlo/world-happiness-report-2021) covering years from 2005 to 2021. The happiness scores and rankings use data from the Gallup World Poll. The columns following the happiness score estimate the extent to which each of six factors – economic production (GDP), social support, life expectancy, freedom, absence of corruption, and generosity – contribute to making life evaluations higher in each country. The six factors have no impact on the total score reported for each country, but they do explain why some countries rank higher than others.
+I utilize the Gallup World Poll's [World Happiness Report](https://www.kaggle.com/ajaypalsinghlo/world-happiness-report-2021) covering years from 2005 to 2021. The happiness scores and rankings use data from the Gallup World Poll. The columns following the happiness score estimate the extent to which each of six factors – economic production (GDP), social support, life expectancy, freedom, absence of corruption, and generosity – contribute to making life evaluations higher in each country.
  
-From the correlation matrix, there are several pairs of variables that are highly correlated, specifically _social_ and _loggdp_, _healthylife_ and _loggdp_, _healthylife_ and _social_. Consequently, I will carefully monitor these variables in my modeling to avoid multicollinearity. I will exclude _social_ and _healthylife_ variables out of the multiple linear regression model to reduce multicollinearity.
+From the correlation matrix, there are several pairs of variables that are highly correlated, specifically _social_ and _loggdp_, _healthylife_ and _loggdp_, _healthylife_ and _social_. Consequently, I will exclude _social_ and _healthylife_ variables out of the multiple linear regression model to reduce multicollinearity.
 
 <img width="813" alt="image" src="https://user-images.githubusercontent.com/93355594/141028297-68b48892-f448-416d-8403-d64d9ac1a440.png">
  
-I perform intial descriptive analysis to see how the dataset is shaped and find out any interesting insights about the data before modeling. As I am interested in the relationship between _happiness_ and _loggdp_, I visualize the relationship between these two variables.
+As I am interested in the relationship between _happiness_ and _loggdp_, I visualize the relationship between these two variables.
   
 <img width="706" alt="image" src="https://user-images.githubusercontent.com/93355594/141028828-dded89ff-7038-4fec-aaaa-33c005cae77e.png">
  
@@ -121,7 +116,7 @@ Unbalanced panel data (160 countries for a total of 1107 observations)
  
 The effect of _loggdp_ on happiness is positive and significant for both panels. However, the effect of _loggdp_ is higher in balanced panel data than it is in unbalanced panel data. The unbalanced data contains influential observations that pulls the betas toward zero.
  
-Upon further investigation, I recognize that most missing data in the period 2014 - 2021 was in the year of 2020. Specifically, most under-developed or developing countries such as Afghanistan, Costa Rica, Haiti, Indonesia, and Vietnam are missing happiness records in 2020. The reason for that is because the surveys cannot be conducted in those countries due to the pandemic. Due to the severe impacts of Covid-19 in under-developed and developed countries, they did not have the means to carry out surveys from the Gallup World Poll. Consequently, most poor countries are removed in the 2020 World Happiness Record. This provided a distorted view of happiness and of factors leading to happiness. Additionally, removing countries that were not observed during the entire time period 2014 - 2021 leads to significant loss of data. The unbalanced panel contains 160 countries, but balanced panel contains only 85 countries. The total observations for unbalanced panel is over 1.5 times more than the observations for balanced panel. As a result, I suspect that there are some unobserved characteristics caused by the lack of random attrition in panel data.
+Upon further investigation, I recognize that most missing data in the period 2014 - 2021 was in the year of 2020. Specifically, most under-developed or developing countries such as Afghanistan, Costa Rica, Haiti, Indonesia, and Vietnam are missing happiness records in 2020. The reason for that is because the surveys cannot be conducted in those countries due to the pandemic. Additionally, removing countries that were not observed during the entire time period 2014 - 2021 leads to significant loss of data. The unbalanced panel contains 160 countries, but balanced panel contains only 85 countries. The total observations for unbalanced panel is over 1.5 times more than the observations for balanced panel. As a result, I suspect that there are some unobserved characteristics caused by the lack of random attrition in panel data.
   
 To determine if the data is random, I conduct a t-test for randomization on balanced and unbalanced panel data. t-value is 5.512 and p-value= 4.163e-08 which is significant. Consequently, the data is not randomly missing.
 
