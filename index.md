@@ -36,7 +36,7 @@ Season and weather patterns also play a role in bike demand. Specifically, deman
 
 ![Weather](https://user-images.githubusercontent.com/93355594/140856156-c665f67a-364d-4289-be78-95096db915ae.png)
 
-By utilizing the information that is available ahead of time, bike-share firms can forecast the bike demand within the next week and thus reduce the uncertainty and ambiguity in their daily operations. Specifically, firms can supply and refill sufficient bikes at each dock, increase customer representative staff to assist customers on their cycling journeys, and implement an appropriate repair and mainteance schedule to minimize service disruption. Being able to predict demand ahead of time will enable bike-sharing programs to improve their operational efficiency, customer satisfaction, and business profits.
+By utilizing the information that is available ahead of time, bike-share firms can forecast the bike demand within the next week and thus reduce the uncertainty and ambiguity in their daily operations. Specifically, firms can supply and refill sufficient bikes at each dock, increase customer representative staff to assist customers on their cycling journeys, and implement an appropriate repair and maintenance schedule to minimize service disruption. Being able to predict demand ahead of time will enable bike-sharing programs to improve their operational efficiency, customer satisfaction, and business profits.
 
 ### Note
 Full version of the project including reproducible code can be found in github depository. The above write-up is meant to serve as an abstract of the project.
