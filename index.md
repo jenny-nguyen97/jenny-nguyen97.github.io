@@ -1,6 +1,22 @@
 # Portfolio
 
 ---
+## Detecting Fraud in Financial Payment Services using Paysim Synthetic Dataset of Mobile Money Transactions 
+### Using Holdout Sample, Undersampling for Imbalanced Dataset, Supervised Machine Larning Algorithms (Logistic Regression, Decision Tree, Random Forest, XGBoost), Visualization with R (ggplot).
+[![View on GitHub](https://img.shields.io/badge/GitHub-View_on_GitHub-red?logo=GitHub)](https://github.com/jennynguyen-97/financialfrauddetection) 
+[![View R code](https://img.shields.io/badge/R-View_R_Code-blue?logo=#75AADB)](https://rpubs.com/htn14/849978)
+
+The [World Economic Forum](https://www.mckinsey.com/business-functions/risk-and-resilience/our-insights/financial-crime-and-fraud-in-the-age-of-cybersecurity) noted that fraud and financial crime was a trillion-dollar industry, reporting that private companies spent approximately $8.2 billion on anti–money laundering (AML) controls alone in 2017. In the age of automation and digitization, along with a massive growth in transaction volumes, financial crimes themselves, detected and undetected, have become more numerous and costly than ever.
+
+![frauds-in-audit](https://user-images.githubusercontent.com/93355594/147002073-cf91f2f9-8f92-4ca1-9525-276e329314b3.jpeg)
+
+## I. Business Understanding
+The cost of fraud pre-COVID-19 among U.S. financial services and lending firms rose 12.8% over the previous reporting period, which covered the first halves of 2018 and 2019 respectively. For every dollar of fraud lost in the pre-COVID period, U.S. financial services and lending companies incurred an average of $3.78 in costs, up from $3.35. These losses include the transaction face value for which firms are held liable, plus fees and interest incurred, fines and legal fees, labor and investigation costs and external recovery expenses. The COVID-19 pandemic has had a significantly negative impact on financial services and lending firms. The volume of successful attacks has risen across segments during COVID-19, most dramatically among larger institutions, causing a spike in the cost of fraud.
+
+Due to the increasingly sophisticated and costly frauds, the financial services industry must continue to accelerate and innovate how it prevent, detect, and investigate fraudulent activities. One of the most promising solutions to achieve this goal is through machine learning algorithms.
+
+
+---
 ## Predicting Bike Share Demand for Capital Bikeshare in Washington, D.C.
 ### Using Supervised Machine Learning Algorithms (Linear Regression, Lasso Regression, CART, Random Forest), Holdout Sample, k-Fold Cross Validation, Visualization with Tableau and R (ggplot).
 
