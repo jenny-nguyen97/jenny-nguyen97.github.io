@@ -14,12 +14,12 @@ Due to the increasingly sophisticated and costly frauds, the financial services 
 ![frauds-in-audit](https://user-images.githubusercontent.com/93355594/147002073-cf91f2f9-8f92-4ca1-9525-276e329314b3.jpeg)
 
 ### Data Understanding
-#### Data Overview
+#### A. Data Overview
 The dataset used in this project is from [Kaggle - Paysim synthetic financial dataset for fraud detection](https://www.kaggle.com/arjunjoshua/predicting-fraud-in-financial-payment-services/data). Paysim provided synthetic data for mobile money transactions in a one month period. This dataset contains 11 attributes and roughly 6.3 million observations. There is no null value in the dataset so it does not require data cleaning.
 
 The main technical challenge in any financial fraud dataset is the highly imbalanced distribution between 0 and 1 (or legitimate and fraudulent transactions). This project will show how imbalanced dataset is resolved and choose a suitable machine learning algorithm to deal with the skew.
   
-#### Exploratory Data Analysis
+#### B. Exploratory Data Analysis
 First, I visualize the frequency of fraud, meaning which percentage of total transactions is fraudulent. The dataset is highly imbalanced with fraudulent transactions only account for 0.13%.
 
 <img width="729" alt="Screen Shot 2021-12-21 at 7 13 34 PM" src="https://user-images.githubusercontent.com/93355594/147013778-247b1675-bc1e-4f7c-8947-c94a0b3d80d7.png">
