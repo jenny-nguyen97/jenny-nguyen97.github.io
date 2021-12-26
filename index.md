@@ -50,7 +50,7 @@ Since the train dataset is balanced, I do not need to consider metrics that take
 
 The performance of four above-mentioned models according to four performance criterias is listed below:
 
-<img width="581" alt="Screen Shot 2021-12-23 at 11 59 52 AM" src="https://user-images.githubusercontent.com/93355594/147271213-7f9089d1-13e3-486a-aa41-affc8c32dde6.png">
+<img width="579" alt="Screen Shot 2021-12-26 at 3 13 15 PM" src="https://user-images.githubusercontent.com/93355594/147419058-b18cf00e-61cf-4f8b-aa2a-46eb41db0cf1.png">
 
 XGBoost outperforms other models on all four metrics, suggesting its high precision and generalization on future unseen data. Consequently, I choose XGBoost as the final model to perform predictions on the train dataset. I also rank feature importance based on XGBoost. As the graph indicates,  oldbalanceOrg, newbalanceOrig, amount, and type provide high informational gains.
   
