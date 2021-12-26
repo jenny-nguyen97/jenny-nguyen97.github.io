@@ -42,17 +42,17 @@ I decide to drop four columns: step, nameOrig, nameDest, and isFlaggedFraud. ste
 In addition, I have to determine an effective way to split the train and test sets so that the train dataset is balanced and appropriate for the modeling step. First, I split the dataset into 70:30 with 70% for train dataset and 30% for test dataset. Next, I apply under-sampling majority class method due to the highly skewed dataset. This method balances classes in the train dataset so that there are 5725 observations in each class or 50:50 split among classes 0 and 1. Balancing dataset is important in machine learning as feeding imbalanced data to classifier model can make it biased in favor of the majority class, simply because it did not have enough data to learn about the minority.
   
 ### Modeling & Evaluation
-Since the train dataset is balanced, I do not need to consider metrics that take into account the imbalance of the dataset. I will use four metrics for model evaluation:
+I use four metrics for model evaluation:
   1. Accuracy: measures the number of classifications a model correctly predicts
   2. Area under the curve (AUC): measures the ability of a classifier to distinguish between classes  
   3. False Positive Rate (FPR): measures the percentage of false positives in each model. I do not want a high FPR as it will reduce customer satisfaction and increase customer fraction in using our mobile money app.
   4. False Negative Rate (FNR): measures the percentage of false negatives in each model. Since the cost of undetected fraud is high, I want my model to correctly detect fraudulent transactions in order to implement preventive methods.
 
-The performance of four above-mentioned models according to four performance criterias is listed below:
+The performance of four models according to the above-mentioned criterias is listed below:
 
 <img width="579" alt="Screen Shot 2021-12-26 at 3 13 15 PM" src="https://user-images.githubusercontent.com/93355594/147419058-b18cf00e-61cf-4f8b-aa2a-46eb41db0cf1.png">
 
-XGBoost outperforms other models on all four metrics, suggesting its high precision and generalization on future unseen data. Consequently, I choose XGBoost as the final model to perform predictions on the train dataset. I also rank feature importance based on XGBoost. As the graph indicates,  oldbalanceOrg, newbalanceOrig, amount, and type provide high informational gains.
+XGBoost outperforms other models on all four metrics, suggesting its high precision and generalization on future unseen data. Consequently, I choose XGBoost as the final model to perform predictions on the train dataset. I also rank feature importance based on XGBoost. As the graph indicates, oldbalanceOrg, newbalanceOrig, amount, and type provide high informational gains.
   
 <img width="603" alt="Screen Shot 2021-12-23 at 12 04 27 PM" src="https://user-images.githubusercontent.com/93355594/147271629-4819779d-2449-4551-a3d0-dc5c408daf54.png">
   
