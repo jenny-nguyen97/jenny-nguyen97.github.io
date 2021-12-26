@@ -22,19 +22,19 @@ The main technical challenge in any financial fraud dataset is the highly imbala
 #### Exploratory Data Analysis
 First, I visualize the frequency of fraud, meaning which percentage of total transactions is fraudulent. The dataset is highly imbalanced with fraudulent transactions only account for 0.13%.
 
-<p align="center"><img width="729" alt="Screen Shot 2021-12-21 at 7 13 34 PM" src="https://user-images.githubusercontent.com/93355594/147013778-247b1675-bc1e-4f7c-8947-c94a0b3d80d7.png">
+<img width="729" alt="Screen Shot 2021-12-21 at 7 13 34 PM" src="https://user-images.githubusercontent.com/93355594/147013778-247b1675-bc1e-4f7c-8947-c94a0b3d80d7.png">
   
 Second, I want to know which types make up the majority of fraudulent transactions. Interestingly, only two transaction types out of five - CASH-OUT and TRANSFER have fraudulent activities. TRANSFER means money is sent to a customer/fraudster and CASH-OUT means money is sent to a merchant who pays the customer/fraudster in cash. Remarkably, the number of fraudulent TRANSFERs almost equals the number of fraudulent CASH-OUTs. These observations make sense in which frauds are committed by first transferring out funds to another account which subsequently cashes it out.
 
-<p align="center"><img width="723" alt="Screen Shot 2021-12-21 at 7 24 11 PM" src="https://user-images.githubusercontent.com/93355594/147014501-e65d28b4-ac4c-40a3-8636-569e4875d652.png">
+<img width="723" alt="Screen Shot 2021-12-21 at 7 24 11 PM" src="https://user-images.githubusercontent.com/93355594/147014501-e65d28b4-ac4c-40a3-8636-569e4875d652.png">
 
 Third, it would be helpful to know the distribution of amount of fraudulent transactions. According to this histogram, fraudulent amount has positive skew with most transactions between 0 - 625,000 in local currency. There is also a low peak around 10,000,000. In total, these fraudulent transactions account for a loss of 12,056,415,428 in local currency. 
 
-<p align="center"><img width="706" alt="Screen Shot 2021-12-21 at 7 36 22 PM" src="https://user-images.githubusercontent.com/93355594/147015349-b783359c-075a-4183-96ca-bcbe44481691.png">
+<img width="706" alt="Screen Shot 2021-12-21 at 7 36 22 PM" src="https://user-images.githubusercontent.com/93355594/147015349-b783359c-075a-4183-96ca-bcbe44481691.png">
   
 Fourth, I incorporate a time element associated with fradulent activities in the analysis by taking the modulo (or the remainder) of a division between the step variable and 24. Since each step represents 1 hour of real world and there is a total of 743 steps for 30 days of data, I convert them into 24 hours where each day has 0 to 23 hours. As the graph depicts, most fraudulent transactions occur between 3 to 6 a.m. when there is a lack of real-time human monitoring. Representing time as hours instead of steps, therefore, would add predictive power to the model and represent a pattern that machine learning algorithms can detect.
 
-<p align="center"><img width="710" alt="Screen Shot 2021-12-21 at 7 37 30 PM" src="https://user-images.githubusercontent.com/93355594/147016244-04e44ce2-01d7-4eab-b1f8-bd4e69fa8718.png">
+<img width="710" alt="Screen Shot 2021-12-21 at 7 37 30 PM" src="https://user-images.githubusercontent.com/93355594/147016244-04e44ce2-01d7-4eab-b1f8-bd4e69fa8718.png">
 
 ### Data Preparation
 I decide to drop four columns: step, nameOrig, nameDest, and isFlaggedFraud. step is used in creating the hour variable so I remove it to avoid the multicollinearity issue. nameOrig and nameDest have too many unique levels to create dummy variables. isFlaggedFraud, according to the data description, will be set when an attempt is made to TRANSFER an amount greater than 200,000; however, only 16 entries (out of more than 6 million) are set to 1 and instances where conditions are met but isFlaggedFraud is not set. Consequently, isFlaggedFraud is not consistent with the data description and will be dropped.
@@ -50,11 +50,11 @@ Since the train dataset is balanced, I do not need to consider metrics that take
 
 The performance of four above-mentioned models according to four performance criterias is listed below:
 
-<p align="center"><img width="581" alt="Screen Shot 2021-12-23 at 11 59 52 AM" src="https://user-images.githubusercontent.com/93355594/147271213-7f9089d1-13e3-486a-aa41-affc8c32dde6.png">
+<img width="581" alt="Screen Shot 2021-12-23 at 11 59 52 AM" src="https://user-images.githubusercontent.com/93355594/147271213-7f9089d1-13e3-486a-aa41-affc8c32dde6.png">
 
 XGBoost outperforms other models on all four metrics, suggesting its high precision and generalization on future unseen data. Consequently, I choose XGBoost as the final model to perform predictions on the train dataset. I also rank feature importance based on XGBoost. As the graph indicates,  oldbalanceOrg, newbalanceOrig, amount, and type provide high informational gains.
   
-<p align="center"><img width="603" alt="Screen Shot 2021-12-23 at 12 04 27 PM" src="https://user-images.githubusercontent.com/93355594/147271629-4819779d-2449-4551-a3d0-dc5c408daf54.png">
+<img width="603" alt="Screen Shot 2021-12-23 at 12 04 27 PM" src="https://user-images.githubusercontent.com/93355594/147271629-4819779d-2449-4551-a3d0-dc5c408daf54.png">
   
 ### Deployment  
 When used successfully, machine learning removes heavy burden of data analysis from the fraud detection team. The results help the team with investigation, insights, and reporting. Machine learning doesn’t replace the fraud analyst team, but gives them the ability to reduce the time spent on manual reviews and data analysis. This means analysts can focus on the most urgent cases and assess alerts faster with more accuracy, and also reduce the number of genuine customers declined.
