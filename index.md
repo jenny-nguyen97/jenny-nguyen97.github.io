@@ -6,14 +6,12 @@
 [![View on GitHub](https://img.shields.io/badge/GitHub-View_on_GitHub-red?logo=GitHub)](https://github.com/jennynguyen-97/financialfrauddetection) 
 [![View R code](https://img.shields.io/badge/R-View_R_Code-blue?logo=#75AADB)](https://rpubs.com/htn14/849978)
 
-The [World Economic Forum](https://www.mckinsey.com/business-functions/risk-and-resilience/our-insights/financial-crime-and-fraud-in-the-age-of-cybersecurity) noted that fraud and financial crime was a trillion-dollar industry, reporting that private companies spent approximately $8.2 billion on anti–money laundering (AML) controls alone in 2017. In the age of automation and digitization, along with a massive growth in transaction volumes, financial crimes themselves, detected and undetected, have become more numerous and costly than ever.
-
-![frauds-in-audit](https://user-images.githubusercontent.com/93355594/147002073-cf91f2f9-8f92-4ca1-9525-276e329314b3.jpeg)
-
 ## I. Business Understanding
 The cost of fraud pre-COVID-19 among U.S. financial services and lending firms rose 12.8% over the previous reporting period, which covered the first halves of 2018 and 2019 respectively. For every dollar of fraud lost in the pre-COVID period, U.S. financial services and lending companies incurred an average of $3.78 in costs, up from $3.35. These losses include the transaction face value for which firms are held liable, plus fees and interest incurred, fines and legal fees, labor and investigation costs and external recovery expenses. The COVID-19 pandemic has had a significantly negative impact on financial services and lending firms. The volume of successful attacks has risen across segments during COVID-19, most dramatically among larger institutions, causing a spike in the cost of fraud.
 
 Due to the increasingly sophisticated and costly frauds, the financial services industry must continue to accelerate and innovate how it prevent, detect, and investigate fraudulent activities. One of the most promising solutions to achieve this goal is through machine learning algorithms.
+
+![frauds-in-audit](https://user-images.githubusercontent.com/93355594/147002073-cf91f2f9-8f92-4ca1-9525-276e329314b3.jpeg)
 
 ## II. Data Understanding
 ### A. Data Overview
@@ -39,9 +37,32 @@ Fourth, I incorporate a time element associated with fradulent activities in the
 <p align="center"><img width="710" alt="Screen Shot 2021-12-21 at 7 37 30 PM" src="https://user-images.githubusercontent.com/93355594/147016244-04e44ce2-01d7-4eab-b1f8-bd4e69fa8718.png">
 
 ## III. Data Preparation
-There is not much cleaning required in this dataset since the data is already clean. However, I decide to drop four columns: step, nameOrig, nameDest, and isFlaggedFraud. step is used in creating the hour variable so I remove it to avoid the multicollinearity issue. nameOrig and nameDest have too many unique levels to create dummy variables. isFlaggedFraud, according to the data description, will be set when an attempt is made to TRANSFER an amount greater than 200,000; however, only 16 entries (out of more than 6 million) are set to 1 and instances where conditions are met but isFlaggedFraud is not set. Consequently, isFlaggedFraud is not consistent with the data description and will be dropped.
+I decide to drop four columns: step, nameOrig, nameDest, and isFlaggedFraud. step is used in creating the hour variable so I remove it to avoid the multicollinearity issue. nameOrig and nameDest have too many unique levels to create dummy variables. isFlaggedFraud, according to the data description, will be set when an attempt is made to TRANSFER an amount greater than 200,000; however, only 16 entries (out of more than 6 million) are set to 1 and instances where conditions are met but isFlaggedFraud is not set. Consequently, isFlaggedFraud is not consistent with the data description and will be dropped.
   
 In addition, I have to determine an effective way to split the train and test sets so that the train dataset is balanced and appropriate for the modeling step. First, I split the dataset into 70:30 with 70% for train dataset and 30% for test dataset. Next, I apply under-sampling majority class method due to the highly skewed dataset. This method balances classes in the train dataset so that there are 5725 observations in each class or 50:50 split among classes 0 and 1. Balancing dataset is important in machine learning as feeding imbalanced data to classifier model can make it biased in favor of the majority class, simply because it did not have enough data to learn about the minority.
+  
+## IV. Modeling & Evaluation
+Since the train dataset is balanced, I do not need to consider metrics that take into account the imbalance of the dataset. I will use four metrics for model evaluation:
+  1. Accuracy: measures the number of classifications a model correctly predicts
+  2. Area under the curve (AUC): measures the ability of a classifier to distinguish between classes  
+  3. False Positive Rate (FPR): measures the percentage of false positives in each model. I do not want a high FPR as it will reduce customer satisfaction and increase customer fraction in using our mobile money app.
+  4. False Negative Rate (FNR): measures the percentage of false negatives in each model. Since the cost of undetected fraud is high, I want my model to correctly detect fraudulent transactions in order to implement preventive methods.
+
+The performance of four above-mentioned models according to four performance criterias is listed below:
+
+<p align="center"><img width="581" alt="Screen Shot 2021-12-23 at 11 59 52 AM" src="https://user-images.githubusercontent.com/93355594/147271213-7f9089d1-13e3-486a-aa41-affc8c32dde6.png">
+
+XGBoost outperforms other models on all four metrics, suggesting its high precision and generalization on future unseen data. Consequently, I choose XGBoost as the final model to perform predictions on the train dataset. I also rank feature importance based on XGBoost. As the graph indicates,  oldbalanceOrg, newbalanceOrig, amount, and type provide high informational gains.
+  
+<p align="center"><img width="603" alt="Screen Shot 2021-12-23 at 12 04 27 PM" src="https://user-images.githubusercontent.com/93355594/147271629-4819779d-2449-4551-a3d0-dc5c408daf54.png">
+  
+## V. Deployment  
+When used successfully, machine learning removes heavy burden of data analysis from the fraud detection team. The results help the team with investigation, insights, and reporting. Machine learning doesn’t replace the fraud analyst team, but gives them the ability to reduce the time spent on manual reviews and data analysis. This means analysts can focus on the most urgent cases and assess alerts faster with more accuracy, and also reduce the number of genuine customers declined.
+
+There are, however, points in which the machine learning algorithm can be improved. First, while undersampling helps reduce the risk of machine learning algorithms skewing toward the majority class and offers less storage requirements and better run times for analyses, this method may drop potentially important information or cause the sample of the majority class chosen to be biased and not representative of real world data. In order to improve the sampling method, a combination of both undersampling and oversampling can be implemented to obtain the most lifelike dataset and accurate results. Second, unsupervised machine learning methods such as K-means or Support Vector Machine (SVM) can be implemented to capture normal data distribution in unlabeled data sets when they’re being trained. Unsupervised methods can prove particularly helpful in cases when labeling data is expensive and time-consuming. Third, machine learning methods will differ based on companies' processes and particular setting. Companies will need to conduct research and experimentation to assess what data and features they have readily available to figure out which model can help detect fraud efficiently. This XGB can serve as a base model and can be upgraded based on companies' features, characteristics, and needs.
+  
+### Note
+Full version of the project including reproducible code can be found in github depository. The above write-up is meant to serve as an abstract of the project.
 
 ---
 ## Predicting Bike Share Demand for Capital Bikeshare in Washington, D.C.
