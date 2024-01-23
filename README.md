@@ -1,3 +1,3 @@
 ## Check my portfolio at
 
-jennynguyen-97.github.io
+jenny-nguyen97.github.io
